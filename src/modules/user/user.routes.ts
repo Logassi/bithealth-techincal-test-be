@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { GetAllAdmin, RegisterAdmin, TestController } from "./admin.controller";
+import {
+  GetAllUser,
+  LoginUser,
+  RegisterUser,
+  TestController,
+} from "./user.controller";
 
 const router = Router();
 
@@ -24,8 +29,10 @@ const router = Router();
 
 router.get("/test", TestController);
 
-router.get("/data", GetAllAdmin);
+router.get("/data", GetAllUser);
 
-router.post("/register", RegisterAdmin);
+router.post("/register", RegisterUser);
+
+router.post("/login", LoginUser);
 
 export default router;
