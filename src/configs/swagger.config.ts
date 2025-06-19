@@ -1,6 +1,7 @@
 import swaggerJSDoc from "swagger-jsdoc";
 import { PORT } from ".";
 
+// i should change the server part when deploy
 const options: swaggerJSDoc.Options = {
   definition: {
     openapi: "3.0.0",
@@ -9,9 +10,9 @@ const options: swaggerJSDoc.Options = {
       version: "1.0.0",
       description: "Swagger API docs using TypeScript + Express",
     },
-    servers: [{ url: `http://localhost:${PORT || 8000}` }],
+    servers: [{ url: `http://localhost:${PORT || 8000}/api/v1` }],
   },
-  apis: ["./src/routes/*.ts"],
+  apis: ["./src/modules/**/*.routes.ts"],
 };
 
 export const swaggerSpec = swaggerJSDoc(options);

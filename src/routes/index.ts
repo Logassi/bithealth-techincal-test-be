@@ -1,8 +1,8 @@
 import { Router } from "express";
-import adminRoutes from "../modules/admin/admin.routes";
+import v1Routes from "./v1";
 
 const router = Router();
 
-router.use("/admin", adminRoutes);
+router.use("/v1", v1Routes);
 
 export default router;
