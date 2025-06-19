@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { TestController } from "./admin.controller";
+import { GetAllAdmin, RegisterAdmin, TestController } from "./admin.controller";
 
 const router = Router();
 
@@ -12,8 +12,20 @@ const router = Router();
  *     responses:
  *       200:
  *         description: A success test response
+ *
+ * api/v1/admin/data:
+ *   get:
+ *     summary: Sample test route
+ *     tags: [Admin]
+ *     responses:
+ *       200:
+ *         description: A success test response
  */
 
 router.get("/test", TestController);
+
+router.get("/data", GetAllAdmin);
+
+router.post("/register", RegisterAdmin);
 
 export default router;
