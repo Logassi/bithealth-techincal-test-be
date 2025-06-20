@@ -3,10 +3,12 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret"; // Replace in production
 const JWT_EXPIRES_IN = "1d"; // Token validity duration
 
-interface JwtPayload {
+export interface JwtPayload {
   id: number; // or string, depending on your user ID type
   email?: string;
   role?: string;
+  iat?: number;
+  exp?: number;
 }
 
 export function signToken(payload: JwtPayload): string {

@@ -3,6 +3,7 @@ import { db } from "../../configs/database";
 import { Request } from "express";
 import { CustomError } from "../../types/error";
 import { signToken } from "../../utils/jwt";
+import { LoginDto, RegisterDto } from "./user.dto";
 
 async function TestService() {
   return {
@@ -17,7 +18,7 @@ async function GetAllUserData() {
 }
 
 async function Register(req: Request) {
-  const { name, email, password, role_id } = req.body;
+  const { name, email, password, role_id }: RegisterDto = req.body;
 
   const existingUser = await db.query("SELECT * FROM users WHERE email = $1", [
     email,
@@ -59,7 +60,7 @@ async function Register(req: Request) {
 }
 
 async function Login(req: Request) {
-  const { email, password } = req.body;
+  const { email, password }: LoginDto = req.body;
 
   const userQuery = `
     SELECT 

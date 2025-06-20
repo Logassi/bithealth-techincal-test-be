@@ -1,6 +1,6 @@
 import express, { Application } from "express";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./src/configs/swagger.config";
+import { swaggerSpec } from "./configs/swagger.config";
 
 const app: Application = express();
 
