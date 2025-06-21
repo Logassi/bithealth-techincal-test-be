@@ -23,7 +23,7 @@ pids/
 .node_repl_history
 
 # Build artifacts
-dist/
+# dist/
 build/
 
 # IDE specific files (e.g., VS Code)
