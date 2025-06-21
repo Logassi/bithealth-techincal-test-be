@@ -10,12 +10,11 @@ const options: swaggerJSDoc.Options = {
       version: "1.0.0",
       description: "Swagger API docs using TypeScript + Express",
     },
-    servers: [
-      { url: `http://localhost:${PORT || 8000}/api/v1` },
-      { url: `https://bithealth-techincal-test-be.vercel.app/api/v1` },
-    ],
+    servers: [{ url: `https://bithealth-techincal-test-be.vercel.app` }],
   },
-  apis: ["./src/modules/**/*.routes.ts"],
+  // apis: ["./src/modules/**/*.routes.ts"],
+  apis: ["./dist/modules/**/*.routes.js"],
+  // apis: [__dirname + "/../modules/**/*.routes.js"],
 };
 
 export const swaggerSpec = swaggerJSDoc(options);
