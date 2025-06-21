@@ -12,7 +12,14 @@ const app = (0, express_1.default)();
 //Middleware function in Express.js that parses incoming JSON payloads and makes the data available in req.body
 app.use(express_1.default.json());
 // Swagger docs
-app.use("/api/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_config_1.swaggerSpec));
+// app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_config_1.swaggerSpec, {
+    customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.min.css",
+    customJs: [
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-bundle.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-standalone-preset.min.js",
+    ],
+}));
 app.use((0, cors_1.default)({
     origin: configs_1.FRONTEND_URL || "http://localhost:3001",
     credentials: true, // If using cookies/sessions
