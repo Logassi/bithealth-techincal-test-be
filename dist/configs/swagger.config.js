@@ -15,7 +15,10 @@ const options = {
             version: "1.0.0",
             description: "Swagger API docs using TypeScript + Express",
         },
-        servers: [{ url: `http://localhost:${_1.PORT || 8000}/api/v1` }],
+        servers: [
+            { url: `http://localhost:${_1.PORT || 8000}/api/v1` },
+            { url: `https://bithealth-techincal-test-be.vercel.app/api/v1` },
+        ],
     },
     apis: ["./src/modules/**/*.routes.ts"],
 };
