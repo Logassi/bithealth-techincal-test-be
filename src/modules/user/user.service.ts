@@ -92,14 +92,15 @@ async function Login(req: Request) {
   const payload = {
     id: user.id,
     email: user.email,
-    role: user.role,
+    name: user.name,
+    role_id: user.role,
   };
 
   const token = signToken(payload);
 
   return {
     message: "Login successful",
-    token,
+    access_token: token,
     // user: {
     //   id: user.id,
     //   name: user.name,

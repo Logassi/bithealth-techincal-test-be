@@ -8,13 +8,14 @@ export function RoleGuard(...allowedRoles: string[]) {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
       const user = req.user as User;
-      if (!user || !user.role) {
+      // console.log(user.role_id);
+      if (!user || !user.role_id) {
         const error = new Error("Unauthorized: No role found") as CustomError;
         error.status = 403;
         throw error;
       }
 
-      if (!allowedRoles.includes(user.role)) {
+      if (!allowedRoles.includes(user.role_id)) {
         const error = new Error("Forbidden: Access denied") as CustomError;
         error.status = 403;
         throw error;
